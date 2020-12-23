@@ -63,11 +63,12 @@ def predict_result(model_dir: str, predict_word):
 
 
 def run():
+    # 在预测时需要将下面的几行注释掉，训练时将那些行打开，包括69行代码。
     words = "男人"
-    input_, output_ = get_directory(BASE_NAME)
+    # input_, output_ = get_directory(BASE_NAME)
     model_, vector_ = get_model_directory(BASE_NAME)
-    read_articles(input_, output_)
-    train_model(output_, model_, vector_)
+    # read_articles(input_, output_)
+    # train_model(output_, model_, vector_)
     predict_result(model_, words)
 
 
