@@ -55,7 +55,7 @@ def train():
 
     if not os.path.exists(tensorboard_dir):
         os.makedirs(tensorboard_dir)
-
+    # 用来显示标量信息，一般用来显示loss和accuracy。
     tf.summary.scalar("loss", model.loss)
     tf.summary.scalar("accuracy", model.acc)
     merged_summary = tf.summary.merge_all()
@@ -163,7 +163,7 @@ def test():
 
 
 if __name__ == '__main__':
-    type_ = "test"
+    type_ = "train"
     print("Configuring CNN model ...")
     config = TCNNConfig()
     # 如果没有这个路径，需要自己创建字典。
