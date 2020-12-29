@@ -14,7 +14,7 @@
             tf.add_to_collection('losses', tf.contrib.layers.l2_regularizer(regularizer)(w))
             return w
         第二个函数 get_weight()对参数 w 设定。该函数中，参数 shape 表示参数 w 的形状，regularizer 表示正则化权重，返回值为参数 w。
-        其中，tf.variable()给 w 赋初值，tf.add_to_collection()表 示将参数 w 正则化损失加到总损失 losses 中。
+        其中，tf.variable()给 w 赋初值，tf.add_to_collection()表示将参数 w 正则化损失加到总损失 losses 中。
         def get_bias(shape):
             b = tf.Variable( )
             return b

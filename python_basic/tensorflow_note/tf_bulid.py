@@ -64,7 +64,7 @@
 
             向前传播：
                 变量初始化，计算图节点运算都要用会话实现。
-                变量初始化：在 sess.run 函数中用 tf.global_variables_initializer()汇 总所有待优化变量。
+                变量初始化：在 sess.run 函数中用 tf.global_variables_initializer()汇总所有待优化变量。
                 计算图节点运算：在 sess.run 函数中写入待运算的节点。
                 喂入数据：用 tf.placeholder 占位，在 sess.run 函数中用 feed_dict 喂数据。
                     喂一组数据:
