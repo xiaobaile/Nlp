@@ -32,6 +32,7 @@ checkpoints/
 *.tsv
 tensorboard/
 *.egg
+*.zip
 MANIFEST
 
 # PyInstaller
