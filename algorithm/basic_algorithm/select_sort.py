@@ -15,22 +15,31 @@ import random
 （3）冒泡排序是通过数去找位置，选择排序是给定位置去找数；
 """
 
-
-def select_sort(array):
-    """ 选择排序。"""
-    n = len(array)
-    for j in range(n-1):
-        min_index = j
-        for i in range(j+1, n):
-            if array[min_index] > array[i]:
-                min_index = i
-        array[min_index], array[j] = array[j], array[min_index]
-        print(array)
+import random
+from cal_time import *
 
 
-if __name__ == '__main__':
-    test_in = [i for i in range(10)]
-    random.shuffle(test_in)
-    print(test_in)
-    select_sort(test_in)
-    print(test_in)
+def get_min_pos(li):
+    min_pos = 0
+    for i in range(1, len(li)):
+        if li[i] < li[min_pos]:
+            min_pos = i
+    return min_pos
+
+
+@cal_time
+def select_sort(li):
+    for i in range(len(li)-1):  # n或者n-1趟
+        # 第i趟无序区范围 i~最后
+        min_pos = i  # min_pos更新为无序区最小值位置
+        for j in range(i+1, len(li)):
+            if li[j] < li[min_pos]:
+                min_pos = j
+        li[i], li[min_pos] = li[min_pos], li[i]
+
+
+li = list(range(10000))
+random.shuffle(li)
+select_sort(li)
+
+
