@@ -10,20 +10,24 @@ import random
     1、比较相邻的元素。如果第一个比第二个大，就交换它们两个；
     2、对每一对相邻元素作同样的工作，从开始第一对到结尾的最后一对，这样在最后的元素应该会是最大的数；
     3、针对所有的元素重复以上的步骤，除了最后一个；
+最好情况下O(n)，平均情况下O(n^2)，最坏情况下O(n^2)
 """
 
 
 def bubble_sort(array):
     """ 冒泡排序。"""
     n = len(array)
-    count = 0
+    # j 表示第n趟，一共n趟或者n-1趟
     for j in range(n-1):
+        # 如果某趟没有进行交换，表示已经按照序列排列，直接退出。
+        exchange = False
+        # 第i趟，无序区[0, n-i-1], i表示箭头0~n-i-2
         for i in range(n-1-j):
             if array[i] > array[i + 1]:
                 array[i], array[i + 1] = array[i + 1], array[i]
-                count += 1
+                exchange = True
         print("finish %d times sort..." % j)
-        if count == 0:
+        if not exchange:
             break
 
 

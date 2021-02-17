@@ -1,6 +1,5 @@
 import random
 
-
 """
 二分查找就是将查找的键和子数组的中间键作比较，如果被查找的键小于中间键，就在左子数组继续查找；
 如果大于中间键，就在右子数组中查找，否则中间键就是要找的元素。
@@ -20,7 +19,8 @@ https://www.cnblogs.com/luoxn28/p/5767571.html
 def binary_search(array: list, item: int) -> bool:
     n = len(array)
     head = 0
-    tail = n-1
+    tail = n - 1
+    # 只要候选区不为空，就一直循环。
     while head <= tail:
         middle = (head + tail) // 2
         if array[middle] == item:
@@ -41,7 +41,7 @@ def binary_find(array, item):
         if array[middle] == item:
             return True
         elif array[middle] < item:
-            return binary_find(array[middle+1:], item)
+            return binary_find(array[middle + 1:], item)
         else:
             return binary_find(array[: middle], item)
     return False
@@ -77,6 +77,13 @@ def find_last_equal(array, key):
         if tail > 0 and array[tail] == key:
             return tail
     return False
+
+
+def sys_search(array, item):
+    try:
+        return array.index(item)
+    except IndexError:
+        return -1
 
 
 if __name__ == '__main__':
